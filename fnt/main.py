@@ -77,7 +77,7 @@ class fnt(TorrentProvider, MovieProvider):
         self.search_params['recherche'] = title.encode('utf-8')
 
         search_url = self.urls['search'] % urllib.urlencode(self.search_params)
-        log.debug("search url '{0}'".format(search_url))
+        #log.debug("search url '{0}'".format(search_url))
 
         data = self.getHTMLData(search_url, cache_timeout = 30)
         if not data:
