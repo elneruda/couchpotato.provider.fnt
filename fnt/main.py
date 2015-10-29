@@ -74,6 +74,9 @@ class fnt(TorrentProvider, MovieProvider):
         #return True
 
     def _searchOnTitle(self, title, movie, quality, results):
+        log.debug("quality %s" % quality)
+
+        
         self.search_params['recherche'] = title.encode('utf-8')
 
         search_url = self.urls['search'] % urllib.urlencode(self.search_params)
@@ -83,8 +86,6 @@ class fnt(TorrentProvider, MovieProvider):
         if not data:
             log.error("Failed fetching data. Traceback: %s" % traceback.format_exc())
             return
-
-        #log.debug("getHTMLData %s" % data)
 
         try:
             html = BeautifulSoup(data, features=["html", "permissive"])
@@ -122,13 +123,6 @@ class fnt(TorrentProvider, MovieProvider):
 
                         if not all([result_title, download_url]):
                             return
-
-                        #Filter unseeded torrent
-                        #if seeders < self.minseed or leechers < self.minleech:
-                        #    if mode != 'RSS':
-                        #        log.debug("Discarding torrent because it doesn't meet the minimum seeders or leechers: {0} (S:{1} L:{2})".format(result_
-                        #            , seeders, leechers))
-                        #    continue
 
                         item = title, download_url, size, seeders, leechers
 
