@@ -68,17 +68,13 @@ class fnt(TorrentProvider, MovieProvider):
         #if not re.search('Pseudo ou mot de passe non valide', response):
         #    return True
         #else:
-        #    logger.log(u"Invalid username or password. Check your settings", logger.WARNING)
+        #    log.info("Invalid username or password. Check your settings")
         #    return False
 
         #return True
 
     def _searchOnTitle(self, title, movie, quality, results):
-        # check for auth
-        #if not self.lgin():
-        #    return
-
-        self.search_params['recherche'] = title
+        self.search_params['recherche'] = title.encode('utf-8')
 
         search_url = self.urls['search'] % urllib.urlencode(self.search_params)
         log.debug("search url '{0}'".format(search_url))
