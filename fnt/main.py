@@ -79,17 +79,16 @@ class fnt(TorrentProvider, MovieProvider):
         #if not re.search('Pseudo ou mot de passe non valide', response):
         #    return True
         #else:
-        #    logger.log(u"Invalid username or password. Check your settings", logger.WARNING)
+        #    log.info("Invalid username or password. Check your settings")
         #    return False
 
         #return True
 
     def _searchOnTitle(self, title, movie, quality, results):
-        # check for auth
-        #if not self.lgin():
-        #    return
+        log.debug("quality %s" % quality)
 
-        self.search_params['recherche'] = title
+        
+        self.search_params['recherche'] = title.encode('utf-8')
 
         search_url = self.urls['search'] % urllib.urlencode(self.search_params)
         #log.debug("search url '{0}'".format(search_url))
@@ -98,8 +97,6 @@ class fnt(TorrentProvider, MovieProvider):
         if not data:
             log.error("Failed fetching data. Traceback: %s" % traceback.format_exc())
             return
-
-        #log.debug("getHTMLData %s" % data)
 
         try:
             html = BeautifulSoup(data, features=["html", "permissive"])
@@ -137,13 +134,6 @@ class fnt(TorrentProvider, MovieProvider):
 
                         if not all([result_title, download_url]):
                             return
-
-                        #Filter unseeded torrent
-                        #if seeders < self.minseed or leechers < self.minleech:
-                        #    if mode != 'RSS':
-                        #        log.debug("Discarding torrent because it doesn't meet the minimum seeders or leechers: {0} (S:{1} L:{2})".format(result_
-                        #            , seeders, leechers))
-                        #    continue
 
                         item = title, download_url, size, seeders, leechers
 
