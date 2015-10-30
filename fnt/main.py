@@ -26,19 +26,30 @@ class fnt(TorrentProvider, MovieProvider):
         'movie_profile' : 'https://fnt.nu/FnT/fiche_film/',
     }
 
-    search_params_sick = {
-        "afficher": 1, "c118": 1, "c129": 1, "c119": 1, "c120": 1, "c121": 1, "c126": 1,
-        "c137": 1, "c138": 1, "c146": 1, "c122": 1, "c110": 1, "c109": 1, "c135": 1, "c148": 1,
-        "c153": 1, "c149": 1, "c150": 1, "c154": 1, "c155": 1, "c156": 1, "c114": 1,
-        "visible": 1, "freeleech": 0, "nuke": 1, "3D": 0, "sort": "size", "order": "desc"
-    }
-
     search_params = {
-        "afficher" : 1, "c100": 1, "c101": 1, "c127": 1, "c102": 1, "c103": 1, "c104": 1,
-        "c105": 1, "c106": 1, "c107": 1, "c108": 1, "c130": 1, "c115": 1, "c128": 1, "c131": 1,
-        "c147": 1, "visible": 1, "freeleech": 0, "nuke": 0, "3D": 0, "langue": 0,
+        "afficher" : 1, "c100": 1, "c101": 1, "c127": 1, "c105": 1, "c106": 1, "c107": 1, 
+        "c108": 1, "c130": 1, "c115": 1, "c128": 1, "c131": 1, "c140": 1, "c151": 1, 
+        "visible": 1, "freeleech": 0, "nuke": 0, "3D": 0, "langue": 0,
         "sort": "size", "order": "desc"
     }
+
+    #"anime-mhd" : "140"
+    #"anime-hd"  : "151"
+    #"dvdrip"    : "100"
+    #"bdrip"     : "101"
+    #"vostfr"    : "127"
+    #"CINE - DVDR-PAL" : "102"
+    #"CINE - DVDR-NTSC" : "103"
+    #"CINE - DVDR-FULL" : "104"
+    #"cine mhd 720"  : "105"
+    #"cine mhd 1080" : "106" 
+    #"cine hdrip 720" : "107"
+    #"cine hdrip 1080" : "108"
+    #"bluray" : "130"
+    #"cine spectacle" : "115"
+    #"cine documentaire" : "128"
+    #"cine documentaire hd" : "131"
+    #"CINE - BANDE-SON" : "147"
 
     http_time_between_calls = 1 #seconds
     cat_backup_id = None
