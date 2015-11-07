@@ -12,7 +12,7 @@ Move the folder fnt to your customs_plugin folder, which is located within your 
 
 Once installed as above, go about activating the provider as you would with any other provider in CouchPotato
 
-# couchpotato.provider.t411
+# couchpotato.provider.fnt
 
 FNT (Francais) Fournisseur de torrent intégré dans couchpotato
 
